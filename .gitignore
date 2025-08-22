@@ -52,9 +52,6 @@ coverage/
 # nyc test coverage
 .nyc_output
 
-# Dependency directories
-jspm_packages/
-
 # TypeScript cache
 *.tsbuildinfo
 
@@ -67,12 +64,6 @@ jspm_packages/
 # Optional stylelint cache
 .stylelintcache
 
-# Microbundle cache
-.rpt2_cache/
-.rts2_cache_cjs/
-.rts2_cache_es/
-.rts2_cache_umd/
-
 # Optional REPL history
 .node_repl_history
 
@@ -82,24 +73,15 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# parcel-bundler cache (https://parceljs.org/)
+# Vite/Bundler cache
 .cache
 .parcel-cache
-
-# Next.js build output
-.next
-
-# Nuxt.js 빌드
-.nuxt
-
-# Gatsby 파일
-.cache/
-public
-
-# Storybook 빌드 output
-.out
-.storybook-out
 
 # 임시 폴더
 tmp/
 temp/
+
+# Chrome Extension specific
+*.crx
+*.pem
+web-ext-artifacts/
