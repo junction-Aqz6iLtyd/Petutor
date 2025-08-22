@@ -1,9 +1,22 @@
 <script lang="ts">
   import TimeDropdown from './TimeDropdown.svelte';
   import CharacterGrid from './CharacterGrid.svelte';
+  import { settings, updatePauseDuration, updateSelectedCharacter } from '../stores/settings';
+
+  function handleDurationSelect(duration: number) {
+    updatePauseDuration(duration);
+    console.log('시간 설정 저장:', duration, '분');
+  }
+
+  function handleCharacterSelect(characterId: number) {
+    updateSelectedCharacter(characterId);
+    console.log('캐릭터 설정 저장:', characterId);
+  }
 
   function saveSettings() {
-    console.log('Settings saved');
+    // 현재 설정들이 이미 자동으로 저장되므로 사용자에게 피드백만 제공
+    console.log('모든 설정이 저장되었습니다');
+    // TODO: 성공 메시지 표시
   }
 
   function openVocabulary() {
@@ -30,7 +43,10 @@
     </p>
     
     <div class="space-y-3">
-      <TimeDropdown />
+      <TimeDropdown 
+        duration={$settings.pauseDuration} 
+        onSelect={handleDurationSelect} 
+      />
       <div class="flex justify-end">
         <button 
           class="px-6 py-2 bg-color-accent hover:bg-opacity-90 text-white rounded-lg transition-all duration-200 font-medium"
@@ -52,7 +68,10 @@
       <span class="text-lg">😎</span>
     </p>
     
-    <CharacterGrid />
+    <CharacterGrid 
+      selectedId={$settings.selectedCharacter}
+      onSelect={handleCharacterSelect}
+    />
   </div>
 
   <!-- 하단 구분선과 링크 -->

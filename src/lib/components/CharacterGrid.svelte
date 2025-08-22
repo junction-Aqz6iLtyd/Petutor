@@ -1,13 +1,25 @@
 <script lang="ts">
   import { CHARACTERS } from '../constants/characters';
   
-  let selectedSkin = $state(0);
+  interface Props {
+    selectedId?: number;
+    onSelect?: (id: number) => void;
+  }
+
+  let { selectedId = 0, onSelect }: Props = $props();
+  let selectedSkin = $state(selectedId);
 
   function selectSkin(id: number) {
     if (CHARACTERS[id].unlocked) {
       selectedSkin = id;
+      onSelect?.(id);
     }
   }
+
+  // selectedId prop이 변경되면 selectedSkin 업데이트
+  $effect(() => {
+    selectedSkin = selectedId;
+  });
 </script>
 
 <div class="grid grid-cols-3 gap-3">

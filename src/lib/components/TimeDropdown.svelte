@@ -1,19 +1,32 @@
 <script lang="ts">
-  let isOpen = $state(false);
-  let selectedTime = $state("2시간 뒤에 다시 만나요(오후 11:19)");
+  import { generateTimeOptions, extractDurationFromValue, findValueByDuration, HEADER_OPTION, DEFAULT_DURATION } from '../utils/time';
   
-  const timeOptions = [
-    "재활성화까지:",
-    "1시간 (오후 10:19)",
-    "2시간 (오후 11:19)",
-    "4시간 (오전 1:19)",
-    "12시간 (오전 10:19)",
-    "24시간"
-  ];
+  interface Props {
+    duration?: number; // 분 단위
+    onSelect?: (duration: number) => void;
+  }
+
+  let { duration = DEFAULT_DURATION, onSelect }: Props = $props();
+  let isOpen = $state(false);
+  let selectedTime = $state('');
+  
+  // 실시간으로 시간 옵션 생성
+  $effect(() => {
+    const options = generateTimeOptions();
+    const currentValue = findValueByDuration(duration);
+    selectedTime = currentValue || options[1].value; // 기본값: 2시간
+  });
+
+  // 드롭다운 옵션들 (헤더 + 실제 옵션들)
+  let timeOptions = $derived([HEADER_OPTION, ...generateTimeOptions().map(option => option.value)]);
 
   function selectTime(option: string) {
-    if (option !== "재활성화까지:") {
+    if (option !== HEADER_OPTION) {
       selectedTime = option;
+      const selectedDuration = extractDurationFromValue(option);
+      if (selectedDuration !== null) {
+        onSelect?.(selectedDuration);
+      }
       isOpen = false;
     }
   }
@@ -25,6 +38,25 @@
   function toggleDropdown() {
     isOpen = !isOpen;
   }
+
+  // 5초마다 시간 업데이트 (실시간 시간 반영)
+  let intervalId: number | null = null;
+  
+  $effect(() => {
+    intervalId = setInterval(() => {
+      // 현재 선택된 duration으로 새로운 값 생성
+      const currentValue = findValueByDuration(duration);
+      if (currentValue) {
+        selectedTime = currentValue;
+      }
+    }, 5000); // 5초마다 업데이트
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  });
 </script>
 
 <div class="relative">
