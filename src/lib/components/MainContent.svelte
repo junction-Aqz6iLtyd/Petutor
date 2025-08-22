@@ -13,12 +13,15 @@
   });
 </script>
 
-<div class="card bg-base-200 shadow-xl">
-  <div class="card-body">
-    <h2 class="card-title">Chrome Extension Side Panel</h2>
-    <p>Welcome to your Svelte-powered Chrome extension!</p>
-    <div class="flex items-center gap-4 mt-4">
-      <button class="btn btn-primary" onclick={increment}>
+<div class="bg-chrome-surface rounded-lg border border-chrome-border shadow-lg">
+  <div class="p-6">
+    <h2 class="text-xl font-medium text-chrome-text mb-2">Chrome Extension</h2>
+    <p class="text-chrome-text-secondary mb-6">Welcome to your Svelte-powered Chrome extension!</p>
+    <div class="flex items-center gap-4">
+      <button 
+        class="px-4 py-2 bg-chrome-accent hover:bg-opacity-80 text-white rounded-md transition-all duration-200 hover:shadow-md font-medium" 
+        onclick={increment}
+      >
         Count: {count}
       </button>
     </div>

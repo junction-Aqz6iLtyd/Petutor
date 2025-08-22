@@ -5,7 +5,7 @@
   "description": "A Chrome extension with popup built using Svelte",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Svelte Popup"
+    "default_title": "Chrome Extension"
   },
   "icons": {
     "16": "icons/icon16.png",
