@@ -2,11 +2,11 @@ import { mount } from 'svelte'
 import App from './App.svelte'
 import { navigateTo } from './lib/stores/router'
 
-// Vocabulary page functionality
+// PetShop page functionality
 document.addEventListener('DOMContentLoaded', () => {
   const target = document.getElementById('app')
   if (target) {
-    navigateTo('vocabulary');
+    navigateTo('petshop');
     mount(App, { target })
   }
 })

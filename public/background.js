@@ -121,7 +121,16 @@ async function checkExistingTimer() {
 
 // Listen for messages from the popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  // Note: Navigation is now handled internally via router
+  // These handlers are kept for backward compatibility but not used
   if (request.action === "openVocabulary") {
-    chrome.tabs.create({ url: chrome.runtime.getURL("vocabulary.html") });
+    // Navigation handled by internal router
+    console.log('Vocabulary navigation handled internally');
+  } else if (request.action === "openPetShop") {
+    // Navigation handled by internal router
+    console.log('PetShop navigation handled internally');
+  } else if (request.action === "openSettings") {
+    // Navigation handled by internal router
+    console.log('Settings navigation handled internally');
   }
 });

@@ -9,7 +9,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        vocabulary: resolve(__dirname, 'vocabulary.html')
+        vocabulary: resolve(__dirname, 'vocabulary.html'),
+        petshop: resolve(__dirname, 'petshop.html'),
+        settings: resolve(__dirname, 'settings.html')
       },
       output: {
         entryFileNames: `assets/[name].js`,

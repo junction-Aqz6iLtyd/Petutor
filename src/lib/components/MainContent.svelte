@@ -2,6 +2,7 @@
   import TimeDropdown from './TimeDropdown.svelte';
   import CharacterGrid from './CharacterGrid.svelte';
   import { settings, updatePauseDuration, updateSelectedCharacter, startTimer, stopTimer, getRemainingTime } from '../stores/settings';
+  import { navigateTo } from '../stores/router';
 
   let showSaveMessage = $state(false);
 
@@ -36,7 +37,7 @@
   }
 
   function openVocabulary() {
-    chrome.runtime.sendMessage({ action: 'openVocabulary' });
+    chrome.tabs.create({ url: 'vocabulary.html' });
   }
 
   // 남은 시간 계산 (실시간 업데이트)
@@ -150,16 +151,16 @@
     />
   </div>
 
-  <!-- 하단 구분선과 링크 -->
-  <div class="border-t border-color-border pt-4">
-    <button 
-      class="flex items-center justify-between w-full text-color-text hover:text-color-accent transition-colors"
-      onclick={openVocabulary}
-    >
-      <span class="font-medium">단어장 바로가기</span>
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-      </svg>
-    </button>
-  </div>
+    <!-- 하단 구분선과 링크 -->
+    <div class="border-t border-color-border pt-4">
+        <button
+                class="flex items-center justify-between w-full text-color-text hover:text-color-accent transition-colors"
+                onclick={openVocabulary}
+        >
+            <span class="font-medium">단어장 바로가기</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
 </div>

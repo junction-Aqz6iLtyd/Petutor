@@ -5,13 +5,16 @@ export default {
     extend: {
       colors: {
         'color-bg': '#17191C',
-        'color-surface': '#292a2d',
+        'color-surface': '#1D2023',
         'color-border': '#5f6368',
+        'color-border-sidebar': 'rgba(255, 255, 255, 0.12)',
         'color-text': '#e8eaed',
         'color-text-secondary': '#9aa0a6',
         'color-accent': '#5765F2',
         'color-hover': '#3c4043',
         'color-active': '#5f6368',
+        'color-user-info-bg': '#17191C',
+        'color-user-info-container-bg': 'rgba(255, 255, 255, 0.08)',
       }
     },
   },
