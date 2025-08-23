@@ -60,7 +60,7 @@
       <div class="p-4 border-b border-color-border">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <img src="/icons/icon48.png" alt="App Icon" class="w-8 h-8 rounded flex-shrink-0">
+            <img src="/icons/app-icon@48.png" alt="App Icon" class="w-8 h-8 rounded flex-shrink-0">
             <span class="text-color-text font-medium text-sm">와옹이랑 영어해요</span>
           </div>
           <button 
@@ -93,7 +93,7 @@
               <img 
                 src={item.icon} 
                 alt=""
-                class="w-6 h-6 flex-shrink-0 transition-all duration-200
+                class="w-6 h-6 flex-shrink-0 transition-all duration-200 border border-color-border rounded-md
                        {selectedMenuItem === item.label 
                          ? 'opacity-100 brightness-0 invert' 
                          : 'opacity-70 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert'}"
