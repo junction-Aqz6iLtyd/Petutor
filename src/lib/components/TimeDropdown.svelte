@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { generateTimeOptions, extractDurationFromValue, findValueByDuration, HEADER_OPTION, DEFAULT_DURATION } from '../utils/time';
+  import { generateTimeOptions, generateSimpleTimeOptions, extractDurationFromSimpleValue, findValueByDuration, findSimpleValueByDuration, HEADER_OPTION, DEFAULT_DURATION } from '../utils/time';
   
   interface Props {
     duration?: number; // 분 단위
@@ -9,22 +9,31 @@
   let { duration = DEFAULT_DURATION, onSelect }: Props = $props();
   let isOpen = $state(false);
   let selectedTime = $state('');
+  let selectedSimpleTime = $state('');
   
   // 실시간으로 시간 옵션 생성
   $effect(() => {
     const options = generateTimeOptions();
     const currentValue = findValueByDuration(duration);
-    selectedTime = currentValue || options[1].value; // 기본값: 2시간
+    selectedTime = currentValue || options[1].value; // 기본값: 2시간 (상세 형식)
+    
+    const simpleCurrentValue = findSimpleValueByDuration(duration);
+    selectedSimpleTime = simpleCurrentValue || generateSimpleTimeOptions()[1].value; // 기본값: 2시간 (간단 형식)
   });
 
-  // 드롭다운 옵션들 (헤더 + 실제 옵션들)
-  let timeOptions = $derived([HEADER_OPTION, ...generateTimeOptions().map(option => option.value)]);
+  // 드롭다운 옵션들 (헤더 + 간단한 형식의 옵션들)
+  let timeOptions = $derived([HEADER_OPTION, ...generateSimpleTimeOptions().map(option => option.value)]);
 
   function selectTime(option: string) {
     if (option !== HEADER_OPTION) {
-      selectedTime = option;
-      const selectedDuration = extractDurationFromValue(option);
+      selectedSimpleTime = option;
+      const selectedDuration = extractDurationFromSimpleValue(option);
       if (selectedDuration !== null) {
+        // 상세 형식도 업데이트
+        const detailedValue = findValueByDuration(selectedDuration);
+        if (detailedValue) {
+          selectedTime = detailedValue;
+        }
         onSelect?.(selectedDuration);
       }
       isOpen = false;
@@ -32,7 +41,7 @@
   }
 
   function isSelected(option: string): boolean {
-    return selectedTime === option;
+    return selectedSimpleTime === option;
   }
 
   function toggleDropdown() {
@@ -91,9 +100,11 @@
         >
           <span>{option}</span>
           {#if isSelected(option) && index !== 0}
-            <svg class="w-4 h-4 text-color-accent" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-            </svg>
+            <div class="w-4 h-4 bg-color-accent rounded-full flex items-center justify-center">
+              <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
           {/if}
         </button>
       {/each}

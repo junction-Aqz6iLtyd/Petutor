@@ -77,7 +77,7 @@
 <div class="space-y-6">
   <!-- 헤더 -->
   <div class="flex items-center justify-between">
-    <h1 class="text-xl font-medium text-color-text">와우이와 영어해요</h1>
+    <h1 class="text-xl font-medium text-color-text">와옹이와 영어해요</h1>
     <button class="text-color-text-secondary hover:text-color-text transition-colors" aria-label="닫기">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -85,9 +85,9 @@
     </button>
   </div>
 
-  <!-- 와우이 잠시 꺼두기 섹션 -->
+  <!-- 와옹이 잠시 꺼두기 섹션 -->
   <div class="space-y-4">
-    <h2 class="text-lg font-medium text-color-text">와우이 잠시 꺼두기</h2>
+    <h2 class="text-lg font-medium text-color-text">와옹이 잠시 꺼두기</h2>
     <p class="text-color-text-secondary text-sm">
       잠깐! 집중해서 해야 할 일이 있나요? 잠시 뒤에 다시 만나요!
     </p>
@@ -140,13 +140,13 @@
     </div>
   </div>
 
-  <!-- 와우이의 옷장 섹션 -->
+  <!-- 와옹이의 옷장 섹션 -->
   <div class="space-y-4">
     <div class="flex items-center gap-2">
-      <h2 class="text-lg font-medium text-color-text">와우이의 옷장</h2>
+      <h2 class="text-lg font-medium text-color-text">와옹이의 옷장</h2>
     </div>
     <p class="text-color-text-secondary text-sm flex items-center gap-1">
-      와우이의 옷을 골라주세요 
+      와옹이의 옷을 골라주세요
       <span class="text-lg">😎</span>
     </p>
     

@@ -48,9 +48,28 @@ export function generateTimeOptions(): TimeOption[] {
     return {
       duration: option.duration,
       label: option.label,
-      value: `${option.label} 뒤에 다시 만나요(${timeString})`
+      value: `${option.label} 뒤에 다시 만나요 (${timeString})`
     };
   });
+}
+
+/**
+ * 드롭다운 표시용 간단한 시간 옵션 생성
+ */
+export function generateSimpleTimeOptions(): TimeOption[] {
+  const baseOptions = [
+    { duration: 60, label: '1시간' },      // 60분
+    { duration: 120, label: '2시간' },     // 120분
+    { duration: 240, label: '4시간' },     // 240분
+    { duration: 720, label: '12시간' },    // 720분
+    { duration: 1440, label: '24시간' }    // 1440분
+  ];
+
+  return baseOptions.map(option => ({
+    duration: option.duration,
+    label: option.label,
+    value: option.label  // 드롭다운에서는 간단히 "n시간"만 표시
+  }));
 }
 
 /**
@@ -63,10 +82,28 @@ export function extractDurationFromValue(value: string): number | null {
 }
 
 /**
+ * 간단한 값에서 duration을 추출하는 함수
+ */
+export function extractDurationFromSimpleValue(value: string): number | null {
+  const options = generateSimpleTimeOptions();
+  const found = options.find(option => option.value === value);
+  return found ? found.duration : null;
+}
+
+/**
  * duration으로 값을 찾는 함수
  */
 export function findValueByDuration(duration: number): string | null {
   const options = generateTimeOptions();
+  const found = options.find(option => option.duration === duration);
+  return found ? found.value : null;
+}
+
+/**
+ * duration으로 간단한 값을 찾는 함수
+ */
+export function findSimpleValueByDuration(duration: number): string | null {
+  const options = generateSimpleTimeOptions();
   const found = options.find(option => option.duration === duration);
   return found ? found.value : null;
 }
