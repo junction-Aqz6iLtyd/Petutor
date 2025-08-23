@@ -1,13 +1,28 @@
 <script lang="ts">
   import Sidebar from "./lib/components/Sidebar.svelte";
   import MainContent from "./lib/components/MainContent.svelte";
+  import VocabularyPage from "./lib/pages/Vocabulary.svelte";
+  import PetShopPage from "./lib/pages/PetShop.svelte";
+  import SettingsPage from "./lib/pages/Settings.svelte";
+  import { currentRoute } from "./lib/stores/router";
 </script>
 
-<div class="h-screen bg-chrome-bg text-chrome-text" data-theme="chrome">
-  <div class="flex h-full">
-    <Sidebar />
-    <main class="flex-1 p-4">
+{#if $currentRoute === 'main'}
+  <div class="h-screen bg-color-bg text-color-text" data-theme="chrome">
+    <div class="p-4">
       <MainContent />
-    </main>
+    </div>
   </div>
-</div>
+{:else}
+  <div class="h-screen bg-color-bg text-color-text flex min-w-0" data-theme="chrome">
+    <Sidebar />
+    
+    {#if $currentRoute === 'vocabulary'}
+      <VocabularyPage />
+    {:else if $currentRoute === 'petshop'}
+      <PetShopPage />
+    {:else if $currentRoute === 'settings'}
+      <SettingsPage />
+    {/if}
+  </div>
+{/if}
