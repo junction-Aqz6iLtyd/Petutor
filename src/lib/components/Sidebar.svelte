@@ -33,7 +33,7 @@
   }
 </script>
 
-<aside class="w-64 bg-color-surface border-r border-color-border flex flex-col h-full">
+<aside class="w-48 bg-color-surface border-r border-color-border flex flex-col h-full">
   <!-- 헤더 -->
   <div class="p-4 border-b border-color-border">
     <div class="flex items-center justify-between">
