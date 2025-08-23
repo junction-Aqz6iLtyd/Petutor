@@ -8,7 +8,7 @@ try {
           chrome.notifications.create('timerExpired', {
             type: 'basic',
             iconUrl: 'icons/icon48.png',
-            title: '와옹이와 영어해요',
+            title: 'Petutor',
             message: '설정한 시간이 만료되었습니다!'
           }).catch(error => {
             console.error('Failed to create notification:', error);
@@ -91,7 +91,7 @@ async function checkExistingTimer() {
           chrome.notifications.create('timerExpired', {
             type: 'basic',
             iconUrl: 'icons/icon48.png',
-            title: '와옹이와 영어해요',
+            title: 'Petutor',
             message: '설정한 시간이 만료되었습니다!'
           }).catch(error => {
             console.error('Failed to create notification:', error);

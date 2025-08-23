@@ -72,7 +72,7 @@
 <div class="space-y-6">
   <!-- 헤더 -->
   <div class="flex items-center justify-between">
-    <h1 class="text-xl font-medium text-color-text">와옹이와 영어해요</h1>
+    <h1 class="text-xl font-medium text-color-text">Petutor</h1>
     <button class="text-color-text-secondary hover:text-color-text transition-colors" aria-label="닫기">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

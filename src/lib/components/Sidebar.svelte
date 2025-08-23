@@ -6,6 +6,7 @@
   import profileImage from '../../assets/profile-image.svg';
   import { navigateTo, currentRoute } from '../stores/router';
   import type { Route } from '../stores/router';
+  import { isDeveloperMode } from '../stores/developerMode';
 
   interface MenuItem {
     icon: string;
@@ -61,7 +62,7 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
             <img src="/icons/app-icon@48.png" alt="App Icon" class="w-8 h-8 rounded flex-shrink-0 border border-color-border">
-            <span class="text-color-text font-medium text-sm">와옹이랑 영어해요</span>
+            <span class="text-color-text font-medium text-sm">Petutor</span>
           </div>
           <button 
             class="text-color-text-secondary hover:text-color-text transition-colors duration-200 p-1 rounded hover:bg-color-hover"
@@ -125,6 +126,26 @@
               </div>
             </button>
         </div>
+        
+        <!-- 개발자 모드 버튼 -->
+        <button 
+          class="w-full mt-3 p-2 border border-color-border rounded-lg text-[#ACB6B9] hover:text-blue-400 hover:border-blue-400 hover:bg-blue-500 hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center gap-2 group"
+          onclick={() => isDeveloperMode.update(val => !val)}
+          aria-label="개발자 모드"
+        >
+          <span class="text-sm font-medium">개발자 모드 {$isDeveloperMode ? 'ON' : 'OFF'}</span>
+        </button>
+
+        {#if $isDeveloperMode}
+        <!-- 온보딩 버튼 -->
+        <button 
+          class="w-full mt-3 p-2 border border-color-border rounded-lg text-[#ACB6B9] hover:text-green-400 hover:border-green-400 hover:bg-green-500 hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center gap-2 group"
+          onclick={() => navigateTo('sign')}
+          aria-label="온보딩"
+        >
+          <span class="text-sm font-medium">온보딩</span>
+        </button>
+        {/if}
         
         <!-- 로그아웃 버튼 -->
         <button 

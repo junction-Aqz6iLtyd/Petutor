@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "와옹이와 영어해요",
+  "name": "Petutor",
   "version": "1.0.0",
   "description": "귀여운 와옹이와 함께하는 영어 학습 Chrome Extension",
   "permissions": [
@@ -10,7 +10,7 @@
   ],
   "action": {
     "default_popup": "index.html",
-    "default_title": "와옹이와 영어해요"
+    "default_title": "Petutor"
   },
   "background": {
     "service_worker": "background.js"

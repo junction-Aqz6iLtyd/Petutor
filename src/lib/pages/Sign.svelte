@@ -25,7 +25,7 @@ function startOnboarding() {
     <!-- 앱 로고와 제목 -->
     <div class="flex items-center mb-8">
       <img src="/src/assets/chara.png" alt="와옹이" class="w-8 h-8 mr-2" />
-      <span class="text-lg font-semibold">와옹이랑 영어해요</span>
+      <span class="text-lg font-semibold">Petutor</span>
     </div>
 
     <!-- 메인 텍스트 -->
