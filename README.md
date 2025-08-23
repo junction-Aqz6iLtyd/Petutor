@@ -23,7 +23,7 @@ Chrome Side Panel API를 활용한 Svelte 기반 확장 프로그램입니다.
 ## 주요 특징
 
 - 🎨 **Modern UI**: TailwindCSS와 DaisyUI를 활용한 깔끔한 디자인
-- 🌓 **다크모드**: 라이트/다크 테마 토글 지원  
+  
 - ⚡ **Svelte 5**: 최신 Svelte 5.0 next 버전 사용
 - 🔧 **TypeScript**: 완전한 타입 안전성 지원
 - 📱 **Side Panel**: Chrome Side Panel API 활용
@@ -39,9 +39,7 @@ src/
 │   ├── components/         # 재사용 가능한 컴포넌트
 │   │   ├── MainContent.svelte
 │   │   ├── Sidebar.svelte  
-│   │   └── ThemeToggle.svelte
 │   ├── stores/             # Svelte 스토어
-│   │   └── theme.ts
 │   ├── constants/          # 상수 정의
 │   │   └── menu.ts
 │   ├── types/              # TypeScript 타입 정의
@@ -88,8 +86,7 @@ npm run check
 ## 사용법
 
 1. 확장 프로그램 설치 후 Chrome 사이드 패널에서 확인 가능
-2. 테마 토글을 통해 다크/라이트 모드 전환
-3. 사이드바를 통한 네비게이션 지원
+2. 사이드바를 통한 네비게이션 지원
 
 &nbsp;
 

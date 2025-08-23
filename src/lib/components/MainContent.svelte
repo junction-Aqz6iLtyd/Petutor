@@ -7,12 +7,10 @@
 
   function handleDurationSelect(duration: number) {
     updatePauseDuration(duration);
-    console.log('시간 설정 저장:', duration, '분');
   }
 
   function handleCharacterSelect(characterId: number) {
     updateSelectedCharacter(characterId);
-    console.log('캐릭터 설정 저장:', characterId);
   }
 
   async function saveSettings() {
@@ -26,18 +24,14 @@
         showSaveMessage = false;
       }, 3000); // 3초 후 메시지 숨김
       
-      console.log('타이머 시작:', $settings.pauseDuration, '분');
     } catch (error) {
-      console.error('타이머 시작 실패:', error);
     }
   }
 
   async function cancelTimer() {
     try {
       await stopTimer();
-      console.log('타이머 취소됨');
     } catch (error) {
-      console.error('타이머 취소 실패:', error);
     }
   }
 

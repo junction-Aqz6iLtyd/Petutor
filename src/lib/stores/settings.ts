@@ -39,7 +39,6 @@ async function loadSettings(): Promise<Settings> {
         delete parsedSettings.pauseTime;
         parsedSettings.pauseDuration = duration;
         
-        console.log('Settings migrated from pauseTime to pauseDuration:', duration);
       }
       
       settings = { ...defaultSettings, ...parsedSettings };
@@ -62,15 +61,12 @@ async function loadSettings(): Promise<Settings> {
               timerDuration: result.timerDuration,
               isTimerActive: true
             };
-            console.log('Existing timer found and restored');
           } else {
             // 타이머가 만료됨
             await chrome.storage.local.remove(['timerStartTime', 'timerDuration']);
-            console.log('Expired timer cleaned up');
           }
         }
       } catch (chromeError) {
-        console.log('Chrome storage not available, using fallback:', chromeError);
         // 폴백으로 localStorage에서 확인
         const startTimeStr = localStorage.getItem('timerStartTime');
         const durationStr = localStorage.getItem('timerDuration');
@@ -88,11 +84,9 @@ async function loadSettings(): Promise<Settings> {
               timerDuration: duration,
               isTimerActive: true
             };
-            console.log('Existing timer found in localStorage and restored');
           } else {
             localStorage.removeItem('timerStartTime');
             localStorage.removeItem('timerDuration');
-            console.log('Expired timer cleaned up from localStorage');
           }
         }
       }
@@ -114,11 +108,9 @@ async function loadSettings(): Promise<Settings> {
             timerDuration: duration,
             isTimerActive: true
           };
-          console.log('Existing timer found in localStorage and restored (no Chrome API)');
         } else {
           localStorage.removeItem('timerStartTime');
           localStorage.removeItem('timerDuration');
-          console.log('Expired timer cleaned up from localStorage (no Chrome API)');
         }
       }
     }
@@ -183,7 +175,6 @@ export const startTimer = async (duration: number) => {
       }
     }
   } catch (error) {
-    console.warn('Chrome API not available, using fallback storage:', error);
     // 폴백으로 localStorage 사용
     localStorage.setItem('timerStartTime', startTime.toString());
     localStorage.setItem('timerDuration', duration.toString());
@@ -197,7 +188,6 @@ export const startTimer = async (duration: number) => {
     isTimerActive: true
   }));
   
-  console.log(`Timer started: ${duration}분 타이머가 시작되었습니다.`);
 };
 
 export const stopTimer = async () => {
@@ -212,7 +202,6 @@ export const stopTimer = async () => {
       await chrome.storage.local.remove(['timerStartTime', 'timerDuration']);
     }
   } catch (error) {
-    console.warn('Chrome API not available, using fallback cleanup:', error);
     // 폴백으로 localStorage 정리
     localStorage.removeItem('timerStartTime');
     localStorage.removeItem('timerDuration');
@@ -226,7 +215,6 @@ export const stopTimer = async () => {
     isTimerActive: false
   }));
   
-  console.log('Timer stopped');
 };
 
 export const getRemainingTime = (timerStartTime?: number, timerDuration?: number): number => {
