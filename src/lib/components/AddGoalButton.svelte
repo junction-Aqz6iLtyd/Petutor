@@ -1,6 +1,19 @@
 <script lang="ts">
+  import AddGoalDialog from './AddGoalDialog.svelte';
+  
+  let isDialogOpen = $state(false);
+  
   function handleAddGoal() {
-    console.log('목표 추가하기 클릭');
+    isDialogOpen = true;
+  }
+  
+  function handleCloseDialog() {
+    isDialogOpen = false;
+  }
+  
+  function handleSaveGoal(goal: any) {
+    console.log('새 목표 저장:', goal);
+    // 여기서 목표를 저장하는 로직을 구현할 수 있습니다.
   }
 </script>
 
@@ -15,3 +28,9 @@
     목표 추가하기
   </button>
 </div>
+
+<AddGoalDialog
+  isOpen={isDialogOpen}
+  onClose={handleCloseDialog}
+  onSave={handleSaveGoal}
+/>

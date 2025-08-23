@@ -76,7 +76,7 @@
       </div>
 
       <!-- 메뉴 리스트 -->
-      <nav class="flex-1 p-4" role="navigation" aria-label="메인 네비게이션">
+      <nav class="flex-1 p-4" aria-label="메인 네비게이션">
         <div class="space-y-2">
           {#each menuItems as item}
             <button
