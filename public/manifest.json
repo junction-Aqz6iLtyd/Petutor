@@ -1,15 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension",
+  "name": "와옹이와 영어해요",
   "version": "1.0.0",
-  "description": "A Chrome extension with popup built using Svelte",
+  "description": "귀여운 와옹이와 함께하는 영어 학습 Chrome Extension",
   "permissions": [
     "alarms",
-    "notifications"
+    "notifications",
+    "storage"
   ],
   "action": {
     "default_popup": "index.html",
-    "default_title": "Chrome Extension"
+    "default_title": "와옹이와 영어해요"
   },
   "background": {
     "service_worker": "background.js"

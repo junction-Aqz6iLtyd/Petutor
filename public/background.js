@@ -118,3 +118,10 @@ async function checkExistingTimer() {
     console.error('Error in checkExistingTimer:', error);
   }
 }
+
+// Listen for messages from the popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "openVocabulary") {
+    chrome.tabs.create({ url: chrome.runtime.getURL("vocabulary.html") });
+  }
+});

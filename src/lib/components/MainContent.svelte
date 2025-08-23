@@ -42,7 +42,7 @@
   }
 
   function openVocabulary() {
-    console.log('Opening vocabulary');
+    chrome.runtime.sendMessage({ action: 'openVocabulary' });
   }
 
   // 남은 시간 계산 (실시간 업데이트)
