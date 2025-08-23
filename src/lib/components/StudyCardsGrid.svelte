@@ -17,7 +17,7 @@
       frequency: '매일',
       goal: {
         name: '단어',
-        description: '50개',
+        description: '50개' ,
         selectedDays: [],
         isDaily: true
       }

@@ -1,6 +1,5 @@
-- [ ]  예문
-- [ ]  퀴즈
-- [ ]  난이도 파악
+- [ ]  퀴즈 이벤트
+- [ ] 
 
 <aside>
 ✅
@@ -147,21 +146,24 @@
                 "english": "apple",
                 "id": 2,
                 "isHighlight": false,
-                "korean": "사과"
+                "korean": "사과",
+                "example": "apple is good"
             },
             {
                 "createdAt": "2025-08-23T03:34:01.610Z",
                 "english": "banana",
                 "id": 3,
                 "isHighlight": false,
-                "korean": "바나나"
+                "korean": "바나나",
+                "example": ""
             },
             {
                 "createdAt": "2025-08-23T03:34:18.532Z",
                 "english": "pineapple",
                 "id": 4,
                 "isHighlight": false,
-                "korean": "피네프레"
+                "korean": "피네프레",
+                "example": ""
             }
         ]
     }
@@ -197,8 +199,8 @@
 
     ```java
     {
-    		"english": "pineapple",
-        "korean": "피네프레"
+    		"english": "know",
+        "korean": "알다"
     }
     ```
 
@@ -206,13 +208,14 @@
 
     ```java
     {
-        "createdAt": "2025-08-23T03:34:18.532Z",
-        "english": "pineapple",
-        "korean": "피네프레",
-        "id": 4,
+        "createdAt": "2025-08-23T18:08:02.599Z",
+        "english": "know",
+        "example": "She knows the names of every kid in the school.",
+        "id": 11,
         "isHighlight": false,
+        "korean": "알다",
         "wordList": {
-            "id": 2
+            "id": 3
         }
     }
     ```
@@ -224,7 +227,8 @@
     ```java
     {
     	"english": "modify",
-    	"korean": "수정하다2"
+    	"korean": "수정하다2",
+    	"example": "example is good"
     }
     ```
 
@@ -236,7 +240,8 @@
         "english": "modify",
         "id": 7,
         "isHighlight": false,
-        "korean": "수정하다"
+        "korean": "수정하다",
+    	"example": "example is good"
     }
     ```
 
@@ -491,5 +496,54 @@
     }
     ```
 
-- [ DELETE ] 목표 수정 `/goals/:id`
+- [ DELETE ] 목표 삭제 `/goals/:id`
+</aside>
+
+<aside>
+❓
+
+## Quiz
+
+- [ GET ] 문장 퀴즈 1 `/quiz/sentence/quiz1`
+
+    ```json
+    {
+        "answer": 1,
+        "questions": [
+            "unless ~; if ~ not",
+            "as far as ~; so far as ~",
+            "명사[형용사]＋as＋S＋V ~= though＋S＋V ~ = though＋S＋V＋관사＋명사[형용사]"
+        ],
+        "quiz": "내가 아는 한 영어에 그런 말은 없다."
+    }
+    ```
+
+- [ GET ] 문장 퀴즈 2 `/quiz/sentence/quiz2`
+
+    ```json
+    {
+        "answer": 2,
+        "questions": [
+            "have only to",
+            "not",
+            "Young as he was"
+        ],
+        "quiz": "???, he passed with flying colors.<br>= ???, he passed triumphantly."
+    }
+    ```
+
+- [ GET ] 보카 퀴즈 1 `/quiz/voca/quiz1`
+
+    ```json
+    {
+        "answer": 0,
+        "questions": [
+            "진기한, 별나고 아름다운",
+            "노동자, 인부",
+            "남다름, 별남, 엉뚱함, 가행(奇行)"
+        ],
+        "quiz": "quaint"
+    }
+    ```
+
 </aside>
