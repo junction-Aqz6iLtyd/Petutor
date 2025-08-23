@@ -3,7 +3,7 @@
   import MainContent from "./lib/components/MainContent.svelte";
   import VocabularyPage from "./lib/pages/Vocabulary.svelte";
   import PetShopPage from "./lib/pages/PetShop.svelte";
-  import SettingsPage from "./lib/pages/Settings.svelte";
+  import HomePage from "./lib/pages/Home.svelte";
   import { currentRoute } from "./lib/stores/router";
 </script>
 
@@ -22,7 +22,7 @@
     {:else if $currentRoute === 'petshop'}
       <PetShopPage />
     {:else if $currentRoute === 'settings'}
-      <SettingsPage />
+      <HomePage />
     {/if}
   </div>
 {/if}
