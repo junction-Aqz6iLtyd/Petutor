@@ -347,6 +347,308 @@ function addGoalElement(data) {
             건너뛰기
           </button>
           
+          <button style="
+            background: #4285f4;
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='#3367d6'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#4285f4'; this.style.transform='translateY(0)'">
+            확인
+          </button>
+        </div>
+      </div>
+
+      <!-- 하단 ask2 퀴즈 -->
+      <div id="petutor-bottom-quiz" style="
+        position: absolute;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #3A3A3A;
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+        color: white;
+        width: 900px;
+        max-width: 80vw;
+        animation: slideInFromRight 1.2s ease-out 1.5s both;
+        pointer-events: auto;
+      ">
+        <!-- 말풍선 꼬리 (왼쪽) -->
+        <div style="
+          position: absolute;
+          left: -12px;
+          bottom: 80px;
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-right: 12px solid #3A3A3A;
+        "></div>
+        
+        <div style="margin-bottom: 24px;">
+          <div style="font-size: 18px; font-weight: 400; margin-bottom: 24px; line-height: 1.4; color: #ffffff;">
+            Q: "${data.description} 동안 집중해서 공부해보세요!" 이 문장에서는 어떤 영어 패턴이 사용될까요?
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">1</div>
+              <span style="font-size: 16px; font-weight: 400;">"Focus for + 시간"</span>
+            </div>
+            
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">2</div>
+              <span style="font-size: 16px; font-weight: 400;">"Let's study + 부사구"</span>
+            </div>
+            
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">3</div>
+              <span style="font-size: 16px; font-weight: 400;">"명령문 + for + 기간"</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <button style="
+            background: none;
+            border: 2px solid #4285f4;
+            color: #4285f4;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='rgba(66, 133, 244, 0.1)'" onmouseout="this.style.background='none'">
+            건너뛰기
+          </button>
+          
+          <button style="
+            background: #4285f4;
+            border: none;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='#3367d6'; this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#4285f4'; this.style.transform='translateY(0)'">
+            확인
+          </button>
+        </div>
+      </div>
+
+      <!-- 하단 ask2 퀴즈 -->
+      <div id="petutor-bottom-quiz" style="
+        position: absolute;
+        bottom: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #3A3A3A;
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+        color: white;
+        width: 900px;
+        max-width: 80vw;
+        animation: slideInFromRight 1.2s ease-out 1.5s both;
+        pointer-events: auto;
+      ">
+        <!-- 말풍선 꼬리 (왼쪽) -->
+        <div style="
+          position: absolute;
+          left: -12px;
+          bottom: 80px;
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-right: 12px solid #3A3A3A;
+        "></div>
+        
+        <div style="margin-bottom: 24px;">
+          <div style="font-size: 18px; font-weight: 400; margin-bottom: 24px; line-height: 1.4; color: #ffffff;">
+            Q: "${data.description} 동안 집중해서 공부해보세요!" 이 문장에서는 어떤 영어 패턴이 사용될까요?
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">1</div>
+              <span style="font-size: 16px; font-weight: 400;">"Focus for + 시간"</span>
+            </div>
+            
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">2</div>
+              <span style="font-size: 16px; font-weight: 400;">"Let's study + 부사구"</span>
+            </div>
+            
+            <div style="
+              background: rgba(255, 255, 255, 0.08);
+              border: 1px solid rgba(255, 255, 255, 0.15);
+              border-radius: 16px;
+              padding: 20px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              min-height: 60px;
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.12)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.transform='translateY(0)'">
+              <div style="
+                width: 32px;
+                height: 32px;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.8);
+                flex-shrink: 0;
+              ">3</div>
+              <span style="font-size: 16px; font-weight: 400;">"명령문 + for + 기간"</span>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <button style="
+            background: none;
+            border: 2px solid #4285f4;
+            color: #4285f4;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='rgba(66, 133, 244, 0.1)'" onmouseout="this.style.background='none'">
+            건너뛰기
+          </button>
+          
           <button id="petutor-close-btn" style="
             background: #4285f4;
             border: none;
@@ -476,13 +778,57 @@ function addSimulationElement() {
     'transform: translateY(-50%);' +
     'width: 180px;' +
     'height: 180px;' +
-    'background-image: url("' + chrome.runtime.getURL('assets/chara.png') + '");' +
     'background-size: contain;' +
     'background-repeat: no-repeat;' +
     'background-position: center;' +
-    'animation: walkIn 2s ease-out 0.5s both;' +
     'pointer-events: none;' +
     'z-index: 10001;';
+  characterDiv.style.transition = 'left 0.04s linear';
+
+  // requestAnimationFrame 기반 걷기 애니메이션
+  let walkFrame = 1;
+  let walkStart = null;
+  function walkStep(ts) {
+    if (!walkStart) walkStart = ts;
+    const elapsed = ts - walkStart;
+    if (elapsed > (walkFrame - 1) * 40) {
+      if (walkFrame <= 90) {
+        characterDiv.style.backgroundImage = `url('${chrome.runtime.getURL('assets/animation/Wawong_2_' + String(walkFrame).padStart(4, '0') + '.webp')}')`;
+        characterDiv.style.left = (-200 + walkFrame * 4) + 'px';
+        walkFrame++;
+        requestAnimationFrame(walkStep);
+      } else {
+        characterDiv.style.backgroundImage = `url('${chrome.runtime.getURL('assets/animation/Wawong_2_0090.webp')}')`;
+        characterDiv.style.left = (-200 + 90 * 4) + 'px';
+      }
+    } else {
+      requestAnimationFrame(walkStep);
+    }
+  }
+  requestAnimationFrame(walkStep);
+
+  // 사라지는 애니메이션 (requestAnimationFrame)
+  characterDiv.exitAnimation = function() {
+    let exitFrame = 90;
+    let exitStart = null;
+    function exitStep(ts) {
+      if (!exitStart) exitStart = ts;
+      const elapsed = ts - exitStart;
+      if (elapsed > (exitFrame - 90) * 30) {
+        if (exitFrame <= 165) {
+          characterDiv.style.backgroundImage = `url('${chrome.runtime.getURL('assets/animation/Wawong_2_' + String(exitFrame).padStart(4, '0') + '.webp')}')`;
+          characterDiv.style.left = (-200 + exitFrame * 6) + 'px';
+          exitFrame++;
+          requestAnimationFrame(exitStep);
+        } else {
+          characterDiv.remove();
+        }
+      } else {
+        requestAnimationFrame(exitStep);
+      }
+    }
+    requestAnimationFrame(exitStep);
+  };
 
   // 상단 퀴즈 생성 (말풍선 형태)
   const topQuizDiv = document.createElement('div');
@@ -587,7 +933,7 @@ function addSimulationElement() {
     '</div>' +
     '<div style="display: flex; justify-content: space-between; align-items: center;">' +
       '<button class="simulation-skip" style="background: none; border: 2px solid #4285f4; color: #4285f4; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">건너뛰기</button>' +
-      '<button class="simulation-close-btn" style="background: #4285f4; border: none; color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">확인</button>' +
+      '<button class="simulation-confirm" style="background: #4285f4; border: none; color: white; padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">확인</button>' +
     '</div>';
   bottomQuizDiv.appendChild(bottomContent);
 
@@ -640,11 +986,11 @@ function addSimulationElement() {
         'to { opacity: 0; }' +
       '}' +
       '.simulation-option:hover {' +
-        'background: rgba(66, 133, 244, 0.15) !important;' +
+        'background: rgba(66, 153, 225, 0.15) !important;' +
         'border-color: #4285f4 !important;' +
       '}' +
       '.simulation-option.selected {' +
-        'background: rgba(66, 133, 244, 0.2) !important;' +
+        'background: rgba(66, 153, 225, 0.2) !important;' +
         'border-color: #4285f4 !important;' +
       '}' +
       '.simulation-skip:hover {' +
@@ -877,6 +1223,7 @@ function addSimulationStyles() {
       'font-size: 16px;' +
       'cursor: pointer;' +
       'transition: all 0.2s;' +
+      'border: none;' +
       'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;' +
     '}' +
     '.petutor-option-button:hover {' +

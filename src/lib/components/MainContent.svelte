@@ -1,10 +1,13 @@
 <script lang="ts">
   import TimeDropdown from './TimeDropdown.svelte';
   import CharacterGrid from './CharacterGrid.svelte';
+  import CharacterAnimation from './CharacterAnimation.svelte';
   import { settings, updatePauseDuration, updateSelectedCharacter, startTimer, stopTimer, getRemainingTime } from '../stores/settings';
   import { navigateTo } from '../stores/router';
 
   let showSaveMessage = $state(false);
+  let animationMode: 'none' | 'walk' | 'exit' = 'none';
+  let isAnimationVisible = false;
 
   function handleDurationSelect(duration: number) {
     updatePauseDuration(duration);
@@ -40,6 +43,20 @@
         }
       });
     }
+    animationMode = 'walk';
+    isAnimationVisible = true;
+  }
+
+  function handleAnimationEnd() {
+    // 등장 애니메이션 끝났을 때 추가 동작 필요시 구현
+  }
+
+  function triggerExitAnimation() {
+    animationMode = 'exit';
+  }
+
+  function handleExitEnd() {
+    isAnimationVisible = false;
   }
 
   async function cancelTimer() {
@@ -167,8 +184,15 @@
     <CharacterGrid 
       selectedId={$settings.selectedCharacter}
       onSelect={handleCharacterSelect}
+      hideCharacterImage={isAnimationVisible}
     />
   </div>
+
+  <!-- 캐릭터 애니메이션 -->
+  {#if isAnimationVisible}
+    <CharacterAnimation mode={animationMode === 'walk' ? 'walk' : 'exit'}
+      onEnd={animationMode === 'walk' ? handleAnimationEnd : handleExitEnd} />
+  {/if}
 
     <!-- 하단 구분선과 링크 -->
     <div class="border-t border-color-border pt-4">

@@ -7,9 +7,42 @@
   let selectedAnswer1 = $state('');
   let selectedAnswer2 = $state('');
 
+  // New animation state variables
+  let currentFrame = $state(1);
+  let animationInterval: number | undefined;
+  let animationState = $state<'idle' | 'entering' | 'exiting'>('idle');
+
+  // Helper to get frame path
+  function getFramePath(frame: number): string {
+    const frameNumber = String(frame).padStart(4, '0');
+    return `/assets/animation/Wawong_2_${frameNumber}.webp`;
+  }
+
+  function playAnimation(start: number, end: number, onComplete?: () => void) {
+    if (animationInterval) {
+      clearInterval(animationInterval);
+    }
+    currentFrame = start;
+    animationInterval = setInterval(() => {
+      if (currentFrame < end) {
+        currentFrame++;
+      } else {
+        clearInterval(animationInterval);
+        animationInterval = undefined;
+        if (onComplete) {
+          onComplete();
+        }
+      }
+    }, 50); // Adjust frame rate as needed
+  }
+
   onMount(() => {
     setTimeout(() => {
       characterVisible = true;
+      animationState = 'entering';
+      playAnimation(1, 90, () => {
+        animationState = 'idle'; // Character is now idle after entering
+      });
     }, 500);
     
     setTimeout(() => {
@@ -48,6 +81,11 @@
   function handleConfirm() {
     if (selectedAnswer1 === '2' && selectedAnswer2 === '1') {
       console.log('정답! 🟡 50 획득!');
+      animationState = 'exiting';
+      playAnimation(90, 165, () => {
+        characterVisible = false; // Hide character after exiting
+        animationState = 'idle';
+      });
     } else {
       console.log('오답!');
     }
@@ -56,8 +94,8 @@
 
 <div class="simulation-container">
   <!-- 캐릭터 -->
-  <div class="character-container" class:visible={characterVisible}>
-    <img src="/assets/chara.png" alt="캐릭터" class="character" />
+  <div class="character-container" class:visible={characterVisible} class:exiting={animationState === 'exiting'}>
+    <img src={getFramePath(currentFrame)} alt="캐릭터" class="character" />
   </div>
 
   <!-- 질문 1 (상단) -->
@@ -131,6 +169,11 @@
 
   .character-container.visible {
     left: 50px;
+  }
+
+  .character-container.exiting {
+    left: 100vw; /* Move off-screen to the right */
+    transition: left 1s ease-in; /* Smooth transition for exiting */
   }
 
   .character {

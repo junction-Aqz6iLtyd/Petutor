@@ -25,7 +25,10 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["assets/chara.png"],
+      "resources": [
+        "assets/chara.png",
+        "assets/animation/*.webp"
+      ],
       "matches": ["<all_urls>"]
     }
   ],
