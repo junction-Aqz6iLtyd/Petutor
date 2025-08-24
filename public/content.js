@@ -861,20 +861,20 @@ function addSimulationElement() {
   const topContent = document.createElement('div');
   topContent.innerHTML = '' +
     '<div style="font-size: 18px; font-weight: 500; margin-bottom: 24px; color: white;">' +
-      'Q. apple 의 뜻은 뭘까?' +
+      'Q. quaint 의 뜻은 뭘까?' +
     '</div>' +
     '<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px;">' +
       '<div class="simulation-option" data-question="1" data-answer="1" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">1</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">사과</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">진기한, 별나고 아름다운</span>' +
       '</div>' +
       '<div class="simulation-option" data-question="1" data-answer="2" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">2</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">오렌지</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">노동자, 인부</span>' +
       '</div>' +
       '<div class="simulation-option" data-question="1" data-answer="3" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">3</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">남지윤</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">남다름, 별남, 엉뚱함, 가행(奇行)</span>' +
       '</div>' +
     '</div>' +
     '<div style="display: flex; justify-content: space-between; align-items: center;">' +
@@ -915,20 +915,20 @@ function addSimulationElement() {
   const bottomContent = document.createElement('div');
   bottomContent.innerHTML = '' +
     '<div style="font-size: 16px; font-weight: 400; margin-bottom: 24px; line-height: 1.4; color: white;">' +
-      'Q: "내가 어렸을 때 우리 동네엔 오래된 절이 하나 있었다." 이 문장에서는 어떤 영어 패턴이 사용될까?' +
+      'Q: "내가 아는 한 영어에 그런 말은 없다." 이 문장을 영어로 어떻게 표현할 수 있을까?' +
     '</div>' +
     '<div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">' +
       '<div class="simulation-option" data-question="2" data-answer="1" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 16px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">1</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">"There used to be ~<S + V : 1형식>"</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">"as far as ~; so far as ~;"</span>' +
       '</div>' +
       '<div class="simulation-option" data-question="2" data-answer="2" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 16px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">2</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">랜덤하게 다른 seq의 "eng_expression"</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">"unless ~; if ~ not"</span>' +
       '</div>' +
       '<div class="simulation-option" data-question="2" data-answer="3" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 16px 20px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 16px; min-height: 50px;">' +
         '<div style="width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.8); flex-shrink: 0; background: rgba(255, 255, 255, 0.1);">3</div>' +
-        '<span style="font-size: 16px; font-weight: 400; color: white;">랜덤하게 다른 seq의 "eng_expression"</span>' +
+        '<span style="font-size: 16px; font-weight: 400; color: white;">"명사[형용사]+as+S+V ~= though+S+V ~= though+S+V+관사+명사[형용사]"</span>' +
       '</div>' +
     '</div>' +
     '<div style="display: flex; justify-content: space-between; align-items: center;">' +
