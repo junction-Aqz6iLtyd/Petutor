@@ -29,6 +29,19 @@
     }
   }
 
+  function handleSimulation() {
+    // 크롬 익스텐션 API를 사용하여 활성 탭에 메시지 전송
+    if (typeof chrome !== 'undefined' && chrome.tabs) {
+      chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        if (tabs[0]?.id) {
+          chrome.tabs.sendMessage(tabs[0].id, {
+            action: 'startSimulation'
+          });
+        }
+      });
+    }
+  }
+
   async function cancelTimer() {
     try {
       await stopTimer();
@@ -116,7 +129,13 @@
           </div>
         </div>
       {:else}
-        <div class="flex justify-end">
+        <div class="flex justify-end gap-3">
+          <button 
+            class="px-6 py-2 border-2 border-green-500 text-color-text hover:border-green-400 hover:bg-green-500/10 rounded-lg transition-all duration-200 font-medium"
+            onclick={handleSimulation}
+          >
+            시뮬레이션
+          </button>
           <button 
             class="px-6 py-2 bg-color-accent hover:bg-opacity-90 text-white rounded-lg transition-all duration-200 font-medium"
             onclick={saveSettings}

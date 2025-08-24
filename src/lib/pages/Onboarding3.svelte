@@ -1,11 +1,11 @@
 <script lang="ts">
-import { router } from '../stores/router';
+import { navigateTo } from '../stores/router';
 
 let goal = '';
 
 function goNext() {
   if (goal.trim()) {
-    router.set('onboarding-finish');
+    navigateTo('onboarding-finish');
   } else {
     alert('목표를 입력해주세요.');
   }
@@ -23,7 +23,7 @@ function goNext() {
   <div class="w-full max-w-lg flex flex-col items-center">
     <!-- 캐릭터와 말풍선 -->
     <div class="relative mb-8">
-      <img src="/src/assets/chara.png" alt="와옹이" class="w-32 h-32 mb-4" />
+      <img src="assets/chara.png" alt="와옹이" class="w-32 h-32 mb-4" />
       <div class="absolute -top-8 left-32 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2">
         <span class="text-sm whitespace-nowrap">영어 학습으로 이루고싶은 목표를 작성해줘!</span>
       </div>

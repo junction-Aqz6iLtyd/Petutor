@@ -1,6 +1,7 @@
 <script lang="ts">
 import { router } from '../stores/router';
 
+
 let userId = '';
 let password = '';
 let rememberLogin = false;
@@ -15,6 +16,7 @@ function handleLogin() {
 function goToSignUp() {
   router.set('onboarding1');
 }
+
 
 function forgotPassword() {
   // 비밀번호 찾기 로직

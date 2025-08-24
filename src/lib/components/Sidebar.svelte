@@ -6,7 +6,6 @@
   import profileImage from '../../assets/profile-image.svg';
   import { navigateTo, currentRoute } from '../stores/router';
   import type { Route } from '../stores/router';
-  import { isDeveloperMode } from '../stores/developerMode';
 
   interface MenuItem {
     icon: string;
@@ -130,22 +129,14 @@
         <!-- 개발자 모드 버튼 -->
         <button 
           class="w-full mt-3 p-2 border border-color-border rounded-lg text-[#ACB6B9] hover:text-blue-400 hover:border-blue-400 hover:bg-blue-500 hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center gap-2 group"
-          onclick={() => isDeveloperMode.update(val => !val)}
+          onclick={() => navigateTo('onboarding1')}
           aria-label="개발자 모드"
         >
-          <span class="text-sm font-medium">개발자 모드 {$isDeveloperMode ? 'ON' : 'OFF'}</span>
+          <span class="text-sm font-medium">개발자 모드</span>
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
         </button>
-
-        {#if $isDeveloperMode}
-        <!-- 온보딩 버튼 -->
-        <button 
-          class="w-full mt-3 p-2 border border-color-border rounded-lg text-[#ACB6B9] hover:text-green-400 hover:border-green-400 hover:bg-green-500 hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center gap-2 group"
-          onclick={() => navigateTo('sign')}
-          aria-label="온보딩"
-        >
-          <span class="text-sm font-medium">온보딩</span>
-        </button>
-        {/if}
         
         <!-- 로그아웃 버튼 -->
         <button 

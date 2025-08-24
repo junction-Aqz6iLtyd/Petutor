@@ -1,5 +1,5 @@
 <script lang="ts">
-import { router } from '../stores/router';
+import { navigateTo } from '../stores/router';
 
 let selectedLevel = 0;
 
@@ -15,7 +15,7 @@ function selectLevel(levelId: number) {
 
 function goNext() {
   if (selectedLevel > 0) {
-    router.set('onboarding3');
+    navigateTo('onboarding3');
   } else {
     alert('레벨을 선택해주세요.');
   }
@@ -33,7 +33,7 @@ function goNext() {
   <div class="w-full max-w-lg flex flex-col items-center">
     <!-- 캐릭터와 말풍선 -->
     <div class="relative mb-8">
-      <img src="/src/assets/chara.png" alt="와옹이" class="w-32 h-32 mb-4" />
+      <img src="assets/chara.png" alt="와옹이" class="w-32 h-32 mb-4" />
       <div class="absolute -top-8 left-32 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2">
         <span class="text-sm whitespace-nowrap">어느 정도 level의 문제를 풀고 싶어?</span>
       </div>

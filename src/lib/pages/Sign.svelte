@@ -1,6 +1,7 @@
 <script lang="ts">
 import { router } from '../stores/router';
 
+
 function goToLogin() {
   router.set('login');
 }
@@ -8,6 +9,7 @@ function goToLogin() {
 function startOnboarding() {
   router.set('onboarding1');
 }
+
 </script>
 
 <main class="flex h-screen bg-gray-200 text-black">

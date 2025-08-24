@@ -32,7 +32,7 @@ const isSelectedPetLocked = $derived(!selectedPet.unlocked);
       <!-- 큰 캐릭터 표시 영역 -->
       <div class="w-56 h-56 flex items-center justify-center rounded-xl border-2 border-gray-600 bg-gray-700 shadow-xl mb-6 p-4">
         <img 
-          src="/src/assets/chara.png" 
+          src="/assets/chara.png" 
           alt="선택된 캐릭터" 
           class="w-full h-full object-contain"
           class:opacity-100={!isSelectedPetLocked}

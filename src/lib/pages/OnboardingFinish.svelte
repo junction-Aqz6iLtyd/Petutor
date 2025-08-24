@@ -1,5 +1,5 @@
 <script lang="ts">
-import { router } from '../stores/router';
+import { navigateTo } from '../stores/router';
 
 function completeOnboarding() {
   // Mark user as logged in (in real app, this would be stored)
@@ -19,7 +19,7 @@ function completeOnboarding() {
   <div class="w-full max-w-lg flex flex-col items-center">
     <!-- 완료된 캐릭터와 말풍선 -->
     <div class="relative mb-12">
-      <img src="/src/assets/chara.png" alt="와옹이" class="w-48 h-48 mb-4" />
+      <img src="assets/chara.png" alt="와옹이" class="w-48 h-48 mb-4" />
       <div class="absolute -top-8 left-48 bg-gray-800 border border-gray-600 rounded-lg px-4 py-2">
         <span class="text-sm whitespace-nowrap">내가 항상 함께 해줄게! 꼭 목표를 이뤄보자!</span>
       </div>

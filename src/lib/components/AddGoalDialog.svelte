@@ -56,6 +56,23 @@
     onSave(goal);
     handleClose();
   }
+
+  function handleSimulation() {
+    // 크롬 익스텐션 API를 사용하여 활성 탭에 메시지 전송
+    if (typeof chrome !== 'undefined' && chrome.tabs) {
+      chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        if (tabs[0]?.id) {
+          chrome.tabs.sendMessage(tabs[0].id, {
+            action: 'addElement',
+            data: {
+              name: goalName,
+              description: goalDescription
+            }
+          });
+        }
+      });
+    }
+  }
   
   function handleBackdropClick(event: MouseEvent) {
     if (event.target === event.currentTarget) {
@@ -171,6 +188,13 @@
           onclick={handleClose}
         >
           취소
+        </button>
+        <button
+          class="px-8 py-3 border-2 border-green-500 text-white rounded-lg hover:border-green-400 hover:bg-green-500/10 transition-all duration-200 text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          onclick={handleSimulation}
+          disabled={!goalName.trim() || !goalDescription.trim()}
+        >
+          시뮬레이션
         </button>
         <button
           class="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 hover:scale-105 transition-all duration-200 text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"

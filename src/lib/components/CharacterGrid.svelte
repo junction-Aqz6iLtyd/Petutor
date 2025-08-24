@@ -35,8 +35,12 @@
       onclick={() => selectSkin(skin.id)}
       disabled={!skin.unlocked}
     >
-      <div class="text-4xl flex items-center justify-center h-full">
-        {skin.emoji}
+      <div class="flex items-center justify-center h-full p-4">
+        <img 
+          src="/assets/chara.png" 
+          alt="캐릭터" 
+          class="w-full h-full object-contain"
+        />
       </div>
       
       {#if !skin.unlocked}
