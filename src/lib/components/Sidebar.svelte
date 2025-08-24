@@ -60,8 +60,8 @@
       <div class="p-4 border-b border-color-border">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <img src="/icons/icon48.png" alt="App Icon" class="w-8 h-8 rounded flex-shrink-0">
-            <span class="text-color-text font-medium text-sm">와옹이랑 영어해요</span>
+            <img src="/icons/app-icon@48.png" alt="App Icon" class="w-8 h-8 rounded flex-shrink-0 border border-color-border">
+            <span class="text-color-text font-medium text-sm">Petutor</span>
           </div>
           <button 
             class="text-color-text-secondary hover:text-color-text transition-colors duration-200 p-1 rounded hover:bg-color-hover"
@@ -125,6 +125,18 @@
               </div>
             </button>
         </div>
+        
+        <!-- 개발자 모드 버튼 -->
+        <button 
+          class="w-full mt-3 p-2 border border-color-border rounded-lg text-[#ACB6B9] hover:text-blue-400 hover:border-blue-400 hover:bg-blue-500 hover:bg-opacity-10 transition-all duration-200 flex items-center justify-center gap-2 group"
+          onclick={() => navigateTo('onboarding1')}
+          aria-label="개발자 모드"
+        >
+          <span class="text-sm font-medium">개발자 모드</span>
+          <svg class="w-4 h-4 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </button>
         
         <!-- 로그아웃 버튼 -->
         <button 

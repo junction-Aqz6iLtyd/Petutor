@@ -1,5 +1,5 @@
 <script lang="ts">
-  import chara from '../../assets/chara.png';
+  
 </script>
 
 <div class="bg-color-accent rounded-2xl p-6 mb-6 relative overflow-hidden h-32">
@@ -11,7 +11,7 @@
     <!-- 왼쪽: 캐릭터 이미지 (크게, 위아래 잘리도록) -->
     <div class="flex items-center gap-6 flex-1">
       <div class="relative">
-        <img src={chara} alt="캐릭터" class="w-32 h-36 object-contain -my-2" />
+        <img src="/assets/chara.png" alt="캐릭터" class="w-32 h-36 object-contain -my-2" />
       </div>
       <div>
         <h2 class="text-white text-2xl font-bold mb-2">김와옹 <span class="text-lg font-normal">21세 여성</span></h2>

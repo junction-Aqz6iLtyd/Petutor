@@ -1,5 +1,5 @@
 <script lang="ts">
-  import charaImage from '../../assets/chara.png';
+  
   
   interface StudyCardProps {
     category: string;
@@ -32,7 +32,7 @@
   <!-- 캐릭터 이미지 -->
   <div class="absolute bottom-4 right-4">
     <img 
-      src={charaImage} 
+      src="/assets/chara.png" 
       alt="와옹이" 
       class="w-24 h-24 object-contain"
     />

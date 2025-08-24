@@ -1,10 +1,13 @@
 <script lang="ts">
   import TimeDropdown from './TimeDropdown.svelte';
   import CharacterGrid from './CharacterGrid.svelte';
+  import CharacterAnimation from './CharacterAnimation.svelte';
   import { settings, updatePauseDuration, updateSelectedCharacter, startTimer, stopTimer, getRemainingTime } from '../stores/settings';
   import { navigateTo } from '../stores/router';
 
   let showSaveMessage = $state(false);
+  let animationMode: 'none' | 'walk' | 'exit' = 'none';
+  let isAnimationVisible = false;
 
   function handleDurationSelect(duration: number) {
     updatePauseDuration(duration);
@@ -27,6 +30,33 @@
       
     } catch (error) {
     }
+  }
+
+  function handleSimulation() {
+    // 크롬 익스텐션 API를 사용하여 활성 탭에 메시지 전송
+    if (typeof chrome !== 'undefined' && chrome.tabs) {
+      chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        if (tabs[0]?.id) {
+          chrome.tabs.sendMessage(tabs[0].id, {
+            action: 'startSimulation'
+          });
+        }
+      });
+    }
+    animationMode = 'walk';
+    isAnimationVisible = true;
+  }
+
+  function handleAnimationEnd() {
+    // 등장 애니메이션 끝났을 때 추가 동작 필요시 구현
+  }
+
+  function triggerExitAnimation() {
+    animationMode = 'exit';
+  }
+
+  function handleExitEnd() {
+    isAnimationVisible = false;
   }
 
   async function cancelTimer() {
@@ -72,7 +102,7 @@
 <div class="space-y-6">
   <!-- 헤더 -->
   <div class="flex items-center justify-between">
-    <h1 class="text-xl font-medium text-color-text">와옹이와 영어해요</h1>
+    <h1 class="text-xl font-medium text-color-text">Petutor</h1>
     <button class="text-color-text-secondary hover:text-color-text transition-colors" aria-label="닫기">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -116,7 +146,13 @@
           </div>
         </div>
       {:else}
-        <div class="flex justify-end">
+        <div class="flex justify-end gap-3">
+          <button 
+            class="px-6 py-2 border-2 border-green-500 text-color-text hover:border-green-400 hover:bg-green-500/10 rounded-lg transition-all duration-200 font-medium"
+            onclick={handleSimulation}
+          >
+            시뮬레이션
+          </button>
           <button 
             class="px-6 py-2 bg-color-accent hover:bg-opacity-90 text-white rounded-lg transition-all duration-200 font-medium"
             onclick={saveSettings}
@@ -148,8 +184,15 @@
     <CharacterGrid 
       selectedId={$settings.selectedCharacter}
       onSelect={handleCharacterSelect}
+      hideCharacterImage={isAnimationVisible}
     />
   </div>
+
+  <!-- 캐릭터 애니메이션 -->
+  {#if isAnimationVisible}
+    <CharacterAnimation mode={animationMode === 'walk' ? 'walk' : 'exit'}
+      onEnd={animationMode === 'walk' ? handleAnimationEnd : handleExitEnd} />
+  {/if}
 
     <!-- 하단 구분선과 링크 -->
     <div class="border-t border-color-border pt-4">

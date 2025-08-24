@@ -4,9 +4,10 @@
   interface Props {
     selectedId?: number;
     onSelect?: (id: number) => void;
+    hideCharacterImage?: boolean;
   }
 
-  let { selectedId = 0, onSelect }: Props = $props();
+  let { selectedId = 0, onSelect, hideCharacterImage = false }: Props = $props();
   let selectedSkin = $state(selectedId);
 
   function selectSkin(id: number) {
@@ -35,8 +36,14 @@
       onclick={() => selectSkin(skin.id)}
       disabled={!skin.unlocked}
     >
-      <div class="text-4xl flex items-center justify-center h-full">
-        {skin.emoji}
+      <div class="flex items-center justify-center h-full p-4">
+        {#if !hideCharacterImage}
+          <img
+            src="/assets/chara.png"
+            alt="캐릭터"
+            class="w-full h-full object-contain"
+          />
+        {/if}
       </div>
       
       {#if !skin.unlocked}
