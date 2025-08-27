@@ -6,9 +6,9 @@
 ![Track](https://img.shields.io/badge/Track-YBM-orange)
 
 <div align="center">
-  <img src="../slides/slide-1.png" width="33%" alt="슬라이드 1">
-  <img src="../slides/slide-2.png" width="33%" alt="슬라이드 2">
-  <img src="../slides/slide-3.png" width="33%" alt="슬라이드 3">
+  <img src="/slides/slide-1.png" width="33%" alt="슬라이드 1">
+  <img src="/slides/slide-2.png" width="33%" alt="슬라이드 2">
+  <img src="/slides/slide-3.png" width="33%" alt="슬라이드 3">
 </div>
 
 <div align="center">
@@ -172,18 +172,18 @@ bun run build
 
 ### 📱 Chrome Extension Interface
 <div align="center">
-  <img src="../screenshots/dashboard.png" width="45%" alt="대시보드 - 학습 목표 관리 및 통계 확인">
-  <img src="../screenshots/vocabulary.png" width="45%" alt="단어장 - 개인화된 단어 학습 관리">
+  <img src="/screenshots/dashboard.png" width="45%" alt="대시보드 - 학습 목표 관리 및 통계 확인">
+  <img src="/screenshots/vocabulary.png" width="45%" alt="단어장 - 개인화된 단어 학습 관리">
 </div>
 
 ### 🎯 Quiz System in Action
 <div align="center">
-  <img src="../screenshots/quiz_overlay.png" width="60%" alt="퀴즈 오버레이 - 웹 브라우징 중 나타나는 퀴즈">
+  <img src="/screenshots/quiz_overlay.png" width="60%" alt="퀴즈 오버레이 - 웹 브라우징 중 나타나는 퀴즈">
 </div>
 
 ### 🛍 Pet Customization
 <div align="center">
-  <img src="../screenshots/pet_customization.png" width="60%" alt="펫 커스터마이징 - 다양한 캐릭터와 아이템">
+  <img src="/screenshots/pet_customization.png" width="60%" alt="펫 커스터마이징 - 다양한 캐릭터와 아이템">
 </div>
 
 > **실제 동작 모습**: 
